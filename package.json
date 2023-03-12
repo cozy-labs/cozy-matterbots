@@ -1,0 +1,23 @@
+{
+  "name": "cozy-matterbots",
+  "version": "0.0.1",
+  "description": "Bots Mattermost pour l'équipe Cozy",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "bot_pull_request": "node ./src/meta---pull-request/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cozy Cloud <contact@cozycloud.cc> (https://cozy.io/)",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cozy-labs/cozy-matterbots.git"
+  },
+  "type": "module",
+  "dependencies": {
+    "@octokit/rest": "^19.0.7",
+    "axios": "^1.2.3",
+    "date-fns": "^2.29.3"
+  }
+}

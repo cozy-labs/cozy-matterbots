@@ -1,0 +1,51 @@
+name: Meta - Pull Requests
+
+on:
+  workflow_dispatch:
+    inputs:
+      MATTERMOST_TO_FILE:
+        description: 'Write PR summary into file instead of Mattermost (this will willingly fail the CI)'
+        required: false
+        type: boolean
+        default: true
+  schedule:
+    - cron:  '0 8,13 * * 1,2,3,4,5'
+
+jobs:
+  fetch-prs:
+    name: Fetch PRs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set NodeJS version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Fetch PRs
+        run: |
+          yarn bot_pull_request
+        env:
+          GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
+          MATTERMOST_META_PULL_REQUESTS_HOOK: ${{ secrets.MATTERMOST_META_PULL_REQUESTS_HOOK }}
+
+      - name: Upload ouptut artifact to GitHub
+        uses: actions/upload-artifact@v3
+        if: ${{ github.event.inputs.MATTERMOST_TO_FILE }}
+        with:
+          name: Output
+          path: |
+            temp/*.md
+
+      - name: Force fail if MATTERMOST_TO_FILE input is true
+        uses: actions/github-script@v6
+        if: ${{ github.event.inputs.MATTERMOST_TO_FILE }}
+        with:
+          script: |
+            core.setFailed('Deliberate fail when MATTERMOST_TO_FILE input is true (see README.md for more details)')
