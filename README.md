@@ -5,7 +5,7 @@ Bots Mattermost pour l'équipe Cozy
 
 This GH Action posts to the `Meta - Pull Request` channel and list the current PRs summary for the [cozy](https://github.com/cozy) organisation
 
-To run it in local, run `GITHUB_API_KEY=XXX MATTERMOST_META_PULL_REQUESTS_HOOK=YYY yarn bot_pull_request`
+To run it in local, run `META_PULL_REQUEST_GITHUB_API_KEY=XXX MATTERMOST_META_PULL_REQUESTS_HOOK=YYY yarn bot_pull_request`
 
 Where:
 - `XXX` is a Github token with the following rights:
@@ -19,7 +19,7 @@ Where:
 For debugging purpose you can set env variable `INPUT_MATTERMOST_TO_FILE=true` to output summary into .md files instead of mattermost
 
 ```
-GITHUB_API_KEY=XXX INPUT_MATTERMOST_TO_FILE=true yarn bot_pull_request
+META_PULL_REQUEST_GITHUB_API_KEY=XXX INPUT_MATTERMOST_TO_FILE=true yarn bot_pull_request
 ```
 
 > **Warning**

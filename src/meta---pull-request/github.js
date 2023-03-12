@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/rest'
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_API_KEY
+  auth: process.env.META_PULL_REQUEST_GITHUB_API_KEY
 })
 
 export const fetchOrgMembers = async (org) => {
