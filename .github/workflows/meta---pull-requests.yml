@@ -32,7 +32,7 @@ jobs:
         run: |
           yarn bot_pull_request
         env:
-          GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
+          META_PULL_REQUEST_GITHUB_API_KEY: ${{ secrets.META_PULL_REQUEST_GITHUB_API_KEY }}
           MATTERMOST_META_PULL_REQUESTS_HOOK: ${{ secrets.MATTERMOST_META_PULL_REQUESTS_HOOK }}
           INPUT_MATTERMOST_TO_FILE: ${{ inputs.MATTERMOST_TO_FILE }}
 
