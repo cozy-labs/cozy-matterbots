@@ -91,7 +91,8 @@ export const formatClosedPulls = (mergedPulls, closedPulls, previousRunDateIsoSt
 
   const previousRun = format(
     new Date(previousRunDateIsoStr),
-    'dd/MM/yyyy à HH:mm'
+    'dd/MM/yyyy à HH:mm',
+    { locale: frLocale }
   )
 
   output += `### PR mergées ou fermées depuis le dernier run (${previousRun})`
@@ -108,6 +109,6 @@ export const formatClosedPulls = (mergedPulls, closedPulls, previousRunDateIsoSt
 }
 
 export const formatCurrentRunTitle = () => {
-  const currentRun = format(new Date(), 'dd/MM/yyyy à HH:mm')
+  const currentRun = format(new Date(), 'dd/MM/yyyy à HH:mm', { locale: frLocale })
   return `# Résumé du ${currentRun}`
 }
