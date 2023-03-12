@@ -18,7 +18,7 @@ const fetchPRs = async (query) => {
   let currentPage = 1
 
   while (pageRemaining) {
-    console.log('fetching page', currentPage)
+    console.log(`fetching page ${currentPage} for '${query}'`)
     const { data } = await octokit.rest.search.issuesAndPullRequests({
       q: query,
       per_page: 100,
