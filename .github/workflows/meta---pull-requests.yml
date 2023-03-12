@@ -34,6 +34,7 @@ jobs:
         env:
           GITHUB_API_KEY: ${{ secrets.GITHUB_API_KEY }}
           MATTERMOST_META_PULL_REQUESTS_HOOK: ${{ secrets.MATTERMOST_META_PULL_REQUESTS_HOOK }}
+          INPUT_MATTERMOST_TO_FILE: ${{ inputs.MATTERMOST_TO_FILE }}
 
       - name: Upload ouptut artifact to GitHub
         uses: actions/upload-artifact@v3

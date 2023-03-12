@@ -12,7 +12,7 @@ const writeResult = async (fileName, content) => {
 }
 
 export const sendToMattermost = async (title, content) => {
-  if (process.env.INPUT_MATTERMOST_TO_FILE) {
+  if (process.env.INPUT_MATTERMOST_TO_FILE === 'true') {
     return await writeResult(`${fileIndex++}_${title}.md`, content)
   }
 

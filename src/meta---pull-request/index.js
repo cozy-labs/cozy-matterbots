@@ -43,6 +43,3 @@ const querySearch = async () => {
 }
 
 querySearch()
-  .catch((e) => {
-    console.log({ e })
-  })
