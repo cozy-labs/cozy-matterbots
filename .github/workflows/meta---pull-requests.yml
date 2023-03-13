@@ -9,7 +9,7 @@ on:
         type: boolean
         default: true
   schedule:
-    - cron:  '0 8,13 * * 1,2,3,4,5'
+    - cron:  '0 7,12 * * 1,2,3,4,5'
 
 jobs:
   fetch-prs:
