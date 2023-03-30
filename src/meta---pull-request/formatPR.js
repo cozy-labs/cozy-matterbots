@@ -34,7 +34,7 @@ const formatPRList = pulls => {
     const emoji = getDateEmoji(created_at)
     const date = getDateString(created_at)
 
-    return `- ${emoji} [${repository}] ${markdownUrl} | par ${user} | ${date}`
+    return `- ${emoji} [${repository}] ${markdownUrl} | par \`${user}\` | ${date}`
   }).join('\n')
 }
 
@@ -44,7 +44,7 @@ const formatClosedPRList = (pulls, emoji) => {
     const markdownUrl = `[${title}](${url})`
     const date = getDateString(closed_at)
 
-    return `- ${emoji} [${repository}] ${markdownUrl} | par ${user} | ${date}`
+    return `- ${emoji} [${repository}] ${markdownUrl} | par \`${user}\` | ${date}`
   }).join('\n')
 }
 
